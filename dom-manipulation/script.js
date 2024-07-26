@@ -182,7 +182,7 @@ document.body.appendChild(formContainer);
   }
 
   function exportFromJsonFile(event) {
-    const fileReader = new FileReader();
+    const fileReader = new FileReader("application/json", "Blob");
     fileReader.onload = function(event) {
       try {
         const exportedQuotes = JSON.parse(event.target.result);
