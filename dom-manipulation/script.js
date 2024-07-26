@@ -180,6 +180,21 @@ document.body.appendChild(formContainer);
     };
     fileReader.readAsText(event.target.files[0]);
   }
+
+  function exportFromJsonFile(event) {
+    const fileReader = new FileReader();
+    fileReader.onload = function(event) {
+      try {
+        const exportedQuotes = JSON.parse(event.target.result);
+        quotes.push(...exportedQuotes);
+        saveQuotes();
+        alert('Quotes exported successfully!');
+      } catch (error) {
+        alert('Error exporting quotes: ' + error.message);
+      }
+    };
+    fileReader.readAsText(event.target.files[0]);
+  }
   
   document.getElementById("newQuote").addEventListener("click", addQuote);
   
