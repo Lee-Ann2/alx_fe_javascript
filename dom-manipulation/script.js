@@ -852,7 +852,7 @@ function importFromJsonFile(event) {
   }
 
  function exportToJsonFile() {
-    const blob = new Blob([JSON.stringify(quotes, null, 2)], { type: 'application/json' });
+    const blob = new Blob([JSON.stringify(quotes, null, 2)], { type: 'application/json', 'Blob' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
